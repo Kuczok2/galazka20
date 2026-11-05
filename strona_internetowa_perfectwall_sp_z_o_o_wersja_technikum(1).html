@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PerfectWall Sp. z o.o. - Wykończenia Wnętrz Pod Klucz</title>
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS STYLES -->
+    <style>
+        /* 1. ZMIENNE GLOBALNE I RESET */
+        :root {
+            --color-dark: #0F172A;       /* Grafit */
+            --color-accent: #FF6B00;     /* Pomarańcz */
+            --color-accent-hover: #e05e00;
+            --color-bg: #F8FAFC;         /* Jasne tło */
+            --color-white: #FFFFFF;
+            --color-text: #334155;
+            --color-muted: #64748B;
+            --font-main: 'Inter', sans-serif;
+            --max-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* 2. KLASY POMOCNICZE / KONTENER */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--color-dark);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--color-muted);
+            font-size: 1rem;
+        }
+
+        /* Przycisk CTA */
+        .btn-cta {
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--color-accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* 3. NAGŁÓWEK (HEADER) */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: var(--color-dark);
+            height: 80px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--color-accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-accent);
+        }
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .phone-link {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* 4. SEKCJA HERO */
+        .hero {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            padding: 80px 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: var(--color-accent);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .hero-form {
+            background-color: var(--color-white);
+            color: var(--color-text);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .hero-form h3 {
+            color: var(--color-dark);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+
+        /* 5. PASEK ZAUFANIA (TRUST BAR) */
+        .trust-bar {
+            background-color: var(--color-white);
+            border-bottom: 1px solid #e2e8f0;
+            padding: 30px 0;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .trust-item h3 {
+            color: var(--color-accent);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .trust-item p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-dark);
+        }
+
+        /* 6. USŁUGI (GRID KART) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background-color: var(--color-white);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-accent);
+        }
+
+        .service-card h3 {
+            color: var(--color-dark);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--color-muted);
+        }
+
+        /* 7. GALERIA Z FILTREM */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            padding: 8px 18px;
+            border: 1px solid #cbd5e1;
+            background-color: var(--color-white);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, 
+        .filter-btn:hover {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            border-color: var(--color-dark);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background-color: var(--color-white);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            padding: 15px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--color-dark);
+        }
+
+        /* 8. PROCES WSPÓŁPRACY */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .process-step {
+            background-color: var(--color-white);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            font-weight: 800;
+            font-size: 1.4rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+        }
+
+        .process-step h3 {
+            margin-bottom: 10px;
+            color: var(--color-dark);
+        }
+
+        /* 9. OPINIE KLIENTÓW */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .review-card {
+            background-color: var(--color-white);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .review-text {
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .review-author {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--color-dark);
+        }
+
+        .review-location {
+            font-size: 0.8rem;
+            color: var(--color-muted);
+        }
+
+        /* 10. KONTAKT I STOPKA */
+        .contact-section {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-details p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .contact-details strong {
+            color: var(--color-accent);
+        }
+
+        footer {
+            background-color: #080d19;
+            color: #94a3b8;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.85rem;
+            border-t: 1px solid #1e293b;
+        }
+
+        /* RESPONSOWNOŚĆ (MEDIA QUERIES - MOBILE) */
+        @media (max-width: 900px) {
+            .hero-grid, 
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-grid, 
+            .services-grid, 
+            .gallery-grid, 
+            .process-grid, 
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                display: none; /* Proste ukrycie nawigacji na mobilkach */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. NAGŁÓWEK (HEADER) -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo">Perfect<span>Wall</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#uslugi">Usługi</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                    <li><a href="#proces">Proces</a></li>
+                    <li><a href="#opinie">Opinie</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+            <div class="header-cta">
+                <a href="tel:+48500600700" class="phone-link">📞 500 600 700</a>
+                <a href="#kontakt" class="btn-cta">Darmowa wycena</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. SEKCJA HERO -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Wykończenia wnętrz pod klucz <span>terminowo i bez stresu</span></h1>
+                <p>Oferujemy profesjonalne wykończenia mieszkań i domów. Gwarantujemy stałą cenę w umowie oraz terminowy odbiór prac bez ukrytych kosztów.</p>
+            </div>
+            
+            <div class="hero-form">
+                <h3>Szybka wycena remontu</h3>
+                <form id="quick-form">
+                    <div class="form-group">
+                        <label for="hero-name">Imię i Nazwisko:</label>
+                        <input type="text" id="hero-name" required placeholder="np. Jan Kowalski">
+                    </div>
+                    <div class="form-group">
+                        <label for="hero-phone">Numer telefonu:</label>
+                        <input type="tel" id="hero-phone" required placeholder="np. 500600700">
+                    </div>
+                    <div class="form-group">
+                        <label for="hero-area">Powierzchnia mieszkania (m²):</label>
+                        <input type="number" id="hero-area" required placeholder="np. 65">
+                    </div>
+                    <button type="submit" class="btn-cta" style="width: 100%;">Wyślij zapytanie</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PASEK ZAUFANIA (TRUST BAR) -->
+    <section class="trust-bar">
+        <div class="container trust-grid">
+            <div class="trust-item">
+                <h3>10 Lat</h3>
+                <p>Gwarancji na prace</p>
+            </div>
+            <div class="trust-item">
+                <h3>100%</h3>
+                <p>Umowa i stała cena</p>
+            </div>
+            <div class="trust-item">
+                <h3>Czystość</h3>
+                <p>Po zakończeniu prac</p>
+            </div>
+            <div class="trust-item">
+                <h3>150+</h3>
+                <p>Gotowych mieszkań</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SEKCJA USŁUGI -->
+    <section id="uslugi" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nasze Usługi</h2>
+                <p>Zobacz, w czym możemy Ci pomóc</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Wykończenia pod klucz</h3>
+                    <p>Kompleksowa obsługa mieszkań w stanie deweloperskim. Od projektu aż po przekazanie kluczy do gotowego lokalu.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Wykończenie Łazienek</h3>
+                    <p>Precyzyjne układanie płytek i gresu, montaż armatury, wanny, kabin prysznicowych oraz wykonywanie hydroizolacji.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Salony i Pokoju</h3>
+                    <p>Malowanie, bezpyłowe gładzie, zabudowy z płytonik-karton (G-K), sufit podwieszane i instalacje oświetlenia LED.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Malowanie i Gładzie</h3>
+                    <p>Gładkie ściany dzięki szlifowaniu maszynowemu oraz precyzyjnemu malowaniu natryskowemu farbami odpornymi na zmywanie.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Układanie Podłóg</h3>
+                    <p>Montaż paneli podłogowych, deski barlineckiej, parkietów oraz listew przypodłogowych z dbałością o dylatację.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Instalacje Elektryczne i Wod-Kan</h3>
+                    <p>Przeróbki punktów elektrycznych, hydraulicznych oraz podłączenia sprzętów AGD z wpisem do karty gwarancyjnej.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. GALERIA Z FILTREM (JAVASCRIPT) -->
+    <section id="galeria" class="section-padding" style="background-color: #f1f5f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nasze Realizacje</h2>
+                <p>Sprawdź efekty naszych ostatnich prac</p>
+            </div>
+
+            <!-- Przyciski filtrujące -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" onclick="filterGallery('all')">Wszystkie</button>
+                <button class="filter-btn" onclick="filterGallery('lazienka')">Łazienki</button>
+                <button class="filter-btn" onclick="filterGallery('salon')">Salony</button>
+            </div>
+
+            <!-- Siatka zdjęć -->
+            <div class="gallery-grid">
+                <div class="gallery-item lazienka">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Łazienka 1">
+                    <div class="gallery-caption">Nowoczesna Łazienka z Gresem</div>
+                </div>
+                <div class="gallery-item salon">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80" alt="Salon 1">
+                    <div class="gallery-caption">Jasny Salon z Aneks kuchennym</div>
+                </div>
+                <div class="gallery-item lazienka">
+                    <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=600&q=80" alt="Łazienka 2">
+                    <div class="gallery-caption">Prysznic typu Walk-In</div>
+                </div>
+                <div class="gallery-item salon">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=600&q=80" alt="Salon 2">
+                    <div class="gallery-caption">Sypialnia z Lamelem Ściennym</div>
+                </div>
+                <div class="gallery-item lazienka">
+                    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=600&q=80" alt="Łazienka 3">
+                    <div class="gallery-caption">Mała Łazienka w Bloku</div>
+                </div>
+                <div class="gallery-item salon">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Salon 3">
+                    <div class="gallery-caption">Wykończenie Domu 120m²</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PROCES WSPÓŁPRACY -->
+    <section id="proces" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Proces Współpracy</h2>
+                <p>3 proste kroki do Twojego wymarzonego wnętrza</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Konsultacja i pomiar</h3>
+                    <p>Spotykamy się w lokalu, omawiamy Twoje potrzeby i wykonujemy darmowe pomiary.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Wycena i umowa</h3>
+                    <p>Przygotowujemy precyzyjny kosztorys i podpisujemy umowę ze stałą ceną.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Odbiór mieszkania</h3>
+                    <p>Wykonujemy prace, sprzątamy i przekazujemy Ci gotowe mieszkanie w ustalonym terminie.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. OPINIE KLIENTÓW -->
+    <section id="opinie" class="section-padding" style="background-color: #f1f5f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Opinie Klientów</h2>
+                <p>Co mówią o nas inwestorzy?</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <p class="review-text">"Prace zakończone 3 dni przed terminem. Bardzo dobry kontakt z kierownikiem i wysoka jakość ułożenia płyt!"</p>
+                    <div>
+                        <div class="review-author">Michał K.</div>
+                        <div class="review-location">Mieszkanie 65m²</div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Czystość na budowie i brak ukrytych kosztów. Cena z umowy była dokładnie taka sama na końcu."</p>
+                    <div>
+                        <div class="review-author">Anna N.</div>
+                        <div class="review-location">Dom pod Warszawą</div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Polecam ekipę PerfectWall. Wykończyli dla mnie dwa mieszkania pod wynajem. Wszystko solidnie."</p>
+                    <div>
+                        <div class="review-author">Piotr Z.</div>
+                        <div class="review-location">Inwestor</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. SEKCJA KONTAKTOWA -->
+    <section id="kontakt" class="section-padding contact-section">
+        <div class="container contact-grid">
+            <div class="contact-info">
+                <h3>Skontaktuj się z nami</h3>
+                <p style="margin-bottom: 20px; color: #cbd5e1;">Masz pytania? Chcesz zamówić darmowy pomiar? Wypełnij formularz lub zadzwoń!</p>
+                
+                <div class="contact-details">
+                    <p><strong>Telefon:</strong> +48 500 600 700</p>
+                    <p><strong>E-mail:</strong> kontakt@perfectwall.pl</p>
+                    <p><strong>Adres:</strong> ul. Architektów 12, Warszawa</p>
+                    <p><strong>Obszar działania:</strong> Warszawa + promień do 50 km</p>
+                </div>
+            </div>
+
+            <div class="hero-form" style="box-shadow: none;">
+                <h3 style="color: var(--color-dark);">Formularz kontaktowy</h3>
+                <form id="main-contact-form">
+                    <div class="form-group">
+                        <label for="contact-name">Imię i Nazwisko:</label>
+                        <input type="text" id="contact-name" required placeholder="Jan Kowalski">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Adres E-mail:</label>
+                        <input type="email" id="contact-email" required placeholder="jan@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Wiadomość:</label>
+                        <textarea id="contact-message" rows="4" required placeholder="Opisz metraż lokalu i zakres prac..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-cta" style="width: 100%;">Wyślij wiadomość</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. STOPKA (FOOTER) -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 PerfectWall Sp. z o.o. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <!-- PROSTY JAVASCRIPT -->
+    <script>
+        // 1. FUNKCJA FILTROWANIA GALERII
+        function filterGallery(category) {
+            // Pobranie wszystkich elementów galerii oraz przycisków
+            var items = document.querySelectorAll('.gallery-item');
+            var buttons = document.querySelectorAll('.filter-btn');
+
+            // Zmiana aktywnego przycisku
+            buttons.forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+
+            // Dodanie klasy 'active' do klikniętego przycisku
+            event.target.classList.add('active');
+
+            // Pętla przechodząca przez każdy element galerii
+            items.forEach(function(item) {
+                if (category === 'all') {
+                    item.style.display = 'block'; // Pokaż wszystko
+                } else {
+                    // Sprawdzenie, czy element posiada wybraną klasę (np. 'lazienka' lub 'salon')
+                    if (item.classList.contains(category)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // 2. WALIDACJA I OBSŁUGA FORMULARZY
+        document.getElementById('quick-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Zatrzymanie przeładowania strony
+            
+            var name = document.getElementById('hero-name').value;
+            var phone = document.getElementById('hero-phone').value;
+            
+            alert('Dziękujemy ' + name + '! Otrzymaliśmy Twoje zgłoszenie. Oddzwonimy na numer ' + phone + ' w ciągu 24h.');
+            this.reset(); // Czyszczenie formularza
+        });
+
+        document.getElementById('main-contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var name = document.getElementById('contact-name').value;
+            
+            alert('Dziękujemy ' + name + '! Wiadomość została pomyślnie wysłana.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
